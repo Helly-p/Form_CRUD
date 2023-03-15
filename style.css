@@ -156,3 +156,24 @@ p{
         padding: 8px 10px 5px 10px;
     }
 }
+#main{
+    background-color: rgba(218, 218, 218, 0.281);
+}
+
+#main #add{
+    float: right;
+    margin-right: 2%;
+}
+
+#main .table{
+    width: 96%;
+    margin: 2%;
+    margin-top: 6%;
+    text-align: center;
+}
+#main table i{
+    font-size: 25px;
+}
+#main table i{
+    color: rgb(39, 81, 196);
+}

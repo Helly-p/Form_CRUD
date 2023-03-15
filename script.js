@@ -1,8 +1,8 @@
 const body = document.body;
 const dataobj = {};
+var pic;
 
 function validateName(name_str) {
-
     let str = name_str.value;
     let name = name_str.name;
 
@@ -123,22 +123,8 @@ function validateBloodgrp(bloodgrp) {
 
 function viewFile() {
     const file = document.querySelector("input[type=file]").files[0];
-    // console.log(file);
-    // const reader = new FileReader();
-
-    // reader.addEventListener("load", () => {
-    //     // convert image file to base64 string
-    //     // preview.src = reader.result;
-    //     dataobj.pic = reader.result;
-    //     // alert(dataobj.pic);
-    // });
-
-    // if (file) {
-    //     reader.readAsDataURL(file);
-    // }
-    // console.log(URL);
     document.getElementById("img").src = URL.createObjectURL(file);
-    // dataobj.pic = file;
+    pic = URL.createObjectURL(file);
 }
 
 // Gender Radio Selection
@@ -150,13 +136,16 @@ function validateGender(gender) {
 // All data
 function openData() {
 
+   
+    let flag =1;
+
     let name = document.getElementById("name").value;
     let office = document.getElementById("office").value;
     let residence = document.getElementById("residence").value;
     let country_code = document.getElementById("country_code").value;
     let mobile = document.getElementById("mobile").value;
     let telephone = document.getElementById("telephone").value;
-    let profile_pic = document.getElementById("profile_pic").value;
+    // let profile_pic = document.getElementById("profile_pic").value;
     let emailid = document.getElementById("emailid").value;
     let aadharno = document.getElementById("aadharno").value;
     let gstin = document.getElementById("gstin").value;
@@ -173,57 +162,75 @@ function openData() {
 
     if (name.length == 0) {
         document.getElementById("name_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (office.length == 0) {
         document.getElementById("office_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (residence.length == 0) {
         document.getElementById("residence_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (mobile.length == 0) {
         document.getElementById("mobile_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (telephone.length == 0) {
         document.getElementById("telephone_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (profile_pic.length == 0) {
         document.getElementById("profile_pic_error").innerHTML = "*Please upload a picture.";
+        flag = 0;
     }
     if (emailid.length == 0) {
         document.getElementById("email_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (aadharno.length == 0) {
         document.getElementById("aadhar_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (gstin.length == 0) {
         document.getElementById("gstin_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (vehicleno.length == 0) {
         document.getElementById("vehicleno_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (bank_acc.length == 0) {
         document.getElementById("bank_acc_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (accno.length == 0) {
         document.getElementById("accno_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (dlno.length == 0) {
         document.getElementById("dlno_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (debitcardno.length == 0) {
         document.getElementById("debitcardno_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (creditcardno.length == 0) {
         document.getElementById("creditcardno_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (passportno.length == 0) {
         document.getElementById("passportno_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (pan_no.length == 0) {
         document.getElementById("pan_no_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
     if (bloodgrp.length == 0) {
         document.getElementById("bloodgrp_error").innerHTML = "*This field is required.";
+        flag = 0;
     }
 
 
@@ -239,6 +246,7 @@ function openData() {
     // alert(count)
     if (count < 2) {
         document.getElementById("hobby_error").innerHTML = "*Please choose more than 2 hobbies.";
+        flag = 0;
     }
     dataobj.hobby = hobby_tosend;
     dataobj.name = name;
@@ -247,7 +255,8 @@ function openData() {
     dataobj.country_code = country_code;
     dataobj.mobile = mobile;
     dataobj.telephone = telephone;
-    dataobj.profile_pic = profile_pic;
+    // dataobj.profile_pic = profile_pic;
+    dataobj.profile_pic = pic;
     dataobj.emailid = emailid;
     dataobj.aadharno = aadharno;
     dataobj.gstin = gstin;
@@ -267,6 +276,12 @@ function openData() {
     dataobj.telephone2 = document.getElementById("telephone2").value;
     dataobj.relation = document.getElementById("relation").value;
 
-    localStorage.clear();
-    localStorage.setItem("data", JSON.stringify(dataobj));
+    if(flag == 1){
+        let key = emailid;
+        let data = JSON.parse(localStorage.getItem('data')) || [];
+        data.push(dataobj);
+        localStorage.setItem('data', JSON.stringify(data));
+        // let key = localStorage.length + 1;
+        // localStorage.setItem(key, JSON.stringify(dataobj));
+    }
 }

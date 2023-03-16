@@ -35,6 +35,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Gender</th>
+                        <th scope="col">View</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -44,6 +45,7 @@
                         <td>1</td>
                         <td>Helly hgfyhggggggggggggggggg</td>
                         <td>Female</td>
+                        <td><i class="fa fa-search"></i></td>
                         <td><i class="fa fa-pencil-square-o"></i></td>
                         <td><i class="fa fa-trash"></i></td>
                     </tr>
@@ -58,27 +60,30 @@
             data = JSON.parse(getdata);
             // console.log(data.length);
 
-            if(data){
-                for(let i = 0; i <= data.length ; i++ ){
-                let tr = "<tr><td>"+i+"</td><td>"+data[i].name+"</td><td>"+data[i].gender+"</td><td><i class='fa fa-pencil-square-o' onclick='edit("+i+")'></i></td><td><i class='fa fa-trash' onclick='deleteData("+i +")'></i></td>";
+            if (data) {
+                for (let i = 0; i <= data.length; i++) {
+                    let tr = "<tr><td>" + i + "</td><td>" + data[i].name + "</td><td>" + data[i].gender + "</td><td><i class='fa fa-search' onclick='view("+i+ ")'></i></td><td><i class='fa fa-pencil-square-o' onclick='edit(" + i + ")'></i></td><td><i class='fa fa-trash' onclick='deleteData(" + data[i].id + ")'></i></td>";
 
-                tbody.innerHTML += tr;    
+                    tbody.innerHTML += tr;
                     // alert(tr)
                 }
             }
         }
-        function edit(id){
-            window.open('./view.html?id='+id,'_parent');
+        function view(id) {
+            window.open('./view.html?id=' + id, '_parent');
         }
-        function deleteData(id){
+        function edit(id) {
+            window.open('./edit.html?id=' + id, '_parent');
+        }
+        function deleteData(id) {
             let data = JSON.parse(localStorage.getItem("data"));
-            // alert(data[id])
-            let after  = data.splice(id,0);
-            alert(after)
-            localStorage.setItem('data', JSON.stringify(data));
-            // localStorage.removeItem("data");
+            
+            // let i =0;
+            const newData = data.filter(object => {
+                return object.id !== id;
+            });
+            localStorage.setItem('data',JSON.stringify(newData));
             location.reload();
-            // alert(id)
         }
     </script>
 </body>

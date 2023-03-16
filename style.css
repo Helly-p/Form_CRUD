@@ -176,13 +176,18 @@ p{
     text-align: center;
 }
 #main table i{
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
 }
 #main table i{
-    color: rgb(39, 81, 196);
+    color: rgb(55, 87, 175);
 }
 #pic_img{
-    padding: 5%;
+    float: right;
+    padding: 1%;
     border: 2px solid rgba(80, 80, 80, 0.411);
+}
+
+th:nth-child(2) ,td:nth-child(2){
+    text-align: left;
 }

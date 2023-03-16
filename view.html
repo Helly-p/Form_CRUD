@@ -16,15 +16,17 @@
 
 </head>
 
-<body onload="openData()">
+<body onload="viewData()">
     <section>
+        <br>
+        <h2 align="center">
+            View Details
+        </h2>
         <form method="post">
             <div class="container form">
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="personal">
-                            <img id="pic_img" alt="Profile Pic" width="120" height="120">
-                        </div>
+                        <img id="pic_img" alt="Profile Pic" width="120" height="120">
                     </div>
                 </div>
                 <hr />
@@ -231,71 +233,7 @@
             </div>
         </form>
     </section>
-    <script>
-        const getdata = localStorage.getItem("data");
-        data = JSON.parse(getdata);
-
-        let paramString = window.location.search;
-        let queryString = new URLSearchParams(paramString);
-
-        for (let pair of queryString.entries()) {
-            data = data[pair[1]];
-        }
-
-        // All data
-        function openData() {
-
-            document.getElementById("name").value = data.name;
-            document.getElementById("office").value = data.office;
-            document.getElementById("residence").value = data.residence;
-            document.getElementById("country_code").value = data.country_code;
-            document.getElementById("mobile").value = data.mobile;
-            document.getElementById("telephone").value = data.telephone;
-            document.getElementById("emailid").value = data.emailid;
-            document.getElementById("aadharno").value = data.aadharno;
-            document.getElementById("gstin").value = data.gstin;
-            document.getElementById("vehicleno").value = data.vehicleno;
-            document.getElementById("dlno").value = data.dlno;
-            document.getElementById("bank_acc").value = data.bank_acc;
-            document.getElementById("accno").value = data.accno;
-            document.getElementById("debitcardno").value = data.debitcardno;
-            document.getElementById("creditcardno").value = data.creditcardno;
-            document.getElementById("passportno").value = data.passportno;
-            document.getElementById("pan_no").value = data.pan_no;
-            document.getElementById("bloodgrp").value = data.bloodgrp;
-            document.getElementById("dob").value = data.dob;
-
-            // document.getElementById("gender").value = data.gender;
-            const gender = data.gender;
-            // alert(gender)
-            if (gender == "Male") {
-                document.getElementById("male").checked = true;
-            }
-            else if (gender == "Female") {
-                document.getElementById("female").checked = true;
-            }
-            else {
-                document.getElementById("other").checked = true;
-            }
-
-            var hobby_toget = data.hobby;
-            var hobby = document.getElementsByName("hobby");
-            hobby_toget.forEach(hobby_name => {
-                hobby.forEach(array => {
-                    if (hobby_name == array.value) {
-                        array.checked = true;
-                    }
-                })
-            });
-
-            document.querySelector("img").src = data.pic;
-
-            document.getElementById("name2").value = data.name2;
-            document.getElementById("mobile2").value = data.mobile2;
-            document.getElementById("telephone2").value = data.telephone2;
-            document.getElementById("relation").value = data.relation;
-        }
-    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

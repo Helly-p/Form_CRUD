@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="viewData('edit')">
     <section>
         <form method="post" action="./index.html" id="Form">
             <div class="container form">
@@ -110,8 +110,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="profile_pic">Profile Picture :</label>
-                        <input type="file" name="profile_pic" id="profile_pic" accept="image/*" onchange="viewFile()"
-                            required>
+                        <input type="file" name="profile_pic" id="profile_pic" accept="image/*" onchange="viewFile()">
                         <br>
                         <img id="img" src="" width="100">
                         <hr />
@@ -326,7 +325,7 @@
                     </div>
                     <div class="col-md-6">
                         <center>
-                            <input type="submit" onclick="openData('save')" value="SUBMIT" id="submit"
+                            <input type="submit" onclick="openData('edit')" value="SUBMIT" id="submit"
                                 class="btn btn-secondary">
                         </center>
                     </div>

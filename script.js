@@ -124,7 +124,15 @@ function validateBloodgrp(bloodgrp) {
 function viewFile() {
     const file = document.querySelector("input[type=file]").files[0];
     document.getElementById("img").src = URL.createObjectURL(file);
-    pic = URL.createObjectURL(file);
+    // pic = URL.createObjectURL(file);
+
+    const reader = new FileReader();
+    reader.addEventListener("load",()=>{
+        dataobj.pic = reader.result;
+    })
+    if(file){
+        reader.readAsDataURL(file);
+    }
 }
 
 // Gender Radio Selection

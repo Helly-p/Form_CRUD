@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="personal">
-                            <h4 class="text-white bg-secondary" disabled>PERSONAL</h4><span>.</span>
+                            <img id="pic_img" alt="Profile Pic" width="120" height="120">
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="gender">Gender :</label>
                         <input type="radio" name="gender" id="male" disabled>
                         <label for="male">Male</label>
@@ -81,13 +81,11 @@
 
                         <input type="radio" name="gender" id="other" disabled>
                         <label for="other">Other</label>
-                        <!-- <input type="text" id="gender" name="gender" readonly> -->
                     </div>
-                    <div class="col-md-6">
-                        <!-- <label for="profile_pic">Profile Picture :</label> -->
-                        <!-- <input type="text" name="profile_pic" id="profile_pic" readonly> -->
-                        <!-- <img alt="" width="100"> -->
-                    </div>
+                    <!-- <div class="col-md-6">
+                        <label for="profile_pic">Profile Picture :</label>
+                        <img id="img" alt="Profile Pic" width="100">
+                    </div> -->
                 </div>
                 <hr />
                 <div class="row">
@@ -236,7 +234,13 @@
     <script>
         const getdata = localStorage.getItem("data");
         data = JSON.parse(getdata);
-        console.log(data);
+
+        let paramString = window.location.search;
+        let queryString = new URLSearchParams(paramString);
+
+        for (let pair of queryString.entries()) {
+            data = data[pair[1]];
+        }
 
         // All data
         function openData() {
@@ -247,7 +251,6 @@
             document.getElementById("country_code").value = data.country_code;
             document.getElementById("mobile").value = data.mobile;
             document.getElementById("telephone").value = data.telephone;
-            // document.getElementById("profile_pic").value = data.profile_pic;
             document.getElementById("emailid").value = data.emailid;
             document.getElementById("aadharno").value = data.aadharno;
             document.getElementById("gstin").value = data.gstin;
@@ -264,10 +267,11 @@
 
             // document.getElementById("gender").value = data.gender;
             const gender = data.gender;
-            if (gender == "male") {
+            // alert(gender)
+            if (gender == "Male") {
                 document.getElementById("male").checked = true;
             }
-            else if (gender == "female") {
+            else if (gender == "Female") {
                 document.getElementById("female").checked = true;
             }
             else {
@@ -284,16 +288,12 @@
                 })
             });
 
-            // document.getElementById("hobby").value = data.hobby;
+            document.querySelector("img").src = data.pic;
 
             document.getElementById("name2").value = data.name2;
             document.getElementById("mobile2").value = data.mobile2;
             document.getElementById("telephone2").value = data.telephone2;
             document.getElementById("relation").value = data.relation;
-
-            // const view = document.querySelector("img");
-            // view.src = URL.createObjectURL(data.pic);
-            // alert(data.pic);
         }
     </script>
 </body>

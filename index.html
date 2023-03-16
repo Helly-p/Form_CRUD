@@ -34,7 +34,7 @@
                     <tr class="m-0 p-0">
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Gender</th>
+                        <th scope="col">Email</th>
                         <th scope="col">View</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
@@ -44,7 +44,7 @@
                     <tr>
                         <td>1</td>
                         <td>Helly hgfyhggggggggggggggggg</td>
-                        <td>Female</td>
+                        <td>helly@gmail.com</td>
                         <td><i class="fa fa-search"></i></td>
                         <td><i class="fa fa-pencil-square-o"></i></td>
                         <td><i class="fa fa-trash"></i></td>
@@ -56,18 +56,23 @@
     <script>
         function loadData() {
             let tbody = document.getElementById("table_body");
-            const getdata = localStorage.getItem("data");
-            data = JSON.parse(getdata);
+            const getdata = localStorage;
+            // data = JSON.parse(getdata);
+            alert(getdata['xyz@gmail.com'])
+
+            
+
             // console.log(data.length);
 
-            if (data) {
-                for (let i = 0; i <= data.length; i++) {
-                    let tr = "<tr><td>" + i + "</td><td>" + data[i].name + "</td><td>" + data[i].gender + "</td><td><i class='fa fa-search' onclick='view("+i+ ")'></i></td><td><i class='fa fa-pencil-square-o' onclick='edit(" + i + ")'></i></td><td><i class='fa fa-trash' onclick='deleteData(" + data[i].id + ")'></i></td>";
+            // if (data) {
+            //     for (let data of getdata.entries()) {
+            //         for(let i =0;i<getdata.length){}
+            //         let tr = "<tr><td>" + i + "</td><td>" + data[i].name + "</td><td>" + data[i].gender + "</td><td><i class='fa fa-search' onclick='view("+i+ ")'></i></td><td><i class='fa fa-pencil-square-o' onclick='edit(" + i + ")'></i></td><td><i class='fa fa-trash' onclick='deleteData(" + data[i].id + ")'></i></td>";
 
-                    tbody.innerHTML += tr;
-                    // alert(tr)
-                }
-            }
+            //         tbody.innerHTML += tr;
+            //         // alert(tr)
+            //     }
+            // }
         }
         function view(id) {
             window.open('./view.html?id=' + id, '_parent');

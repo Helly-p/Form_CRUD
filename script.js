@@ -103,9 +103,11 @@ function validateAllnumbers(data) {
   if (number.length == 0) {
     document.getElementById(name + "_error").innerHTML =
       "*This field is required.";
+
   } else if (!number.match(pattern)) {
     document.getElementById(name + "_error").innerHTML =
       "*Only numbers allowed.";
+
   } else {
     document.getElementById(name + "_error").innerHTML = "";
   }
@@ -301,11 +303,7 @@ function openData(str) {
   if (flag == 1) {
 
     if (str == "save") {
-        // alert("hello")
-      let data = JSON.parse(localStorage.getItem("data")) || [];
-      dataobj.id = data.length;
-      data.push(dataobj);
-      localStorage.setItem("data", JSON.stringify(data));
+      localStorage.setItem(emailid, JSON.stringify(dataobj));
     }
     if (str == "edit") {
         alert("hello")

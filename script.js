@@ -2,6 +2,7 @@ const body = document.body;
 const dataobj = {};
 var pic;
 
+// Name Validation
 function validateName(name_str) {
   let str = name_str.value;
   let name = name_str.name;
@@ -17,6 +18,8 @@ function validateName(name_str) {
     document.getElementById(name + "_error").innerHTML = "";
   }
 }
+
+// Address Validation
 function validateOffice(office) {
   let str = office.value;
   let name = office.name;
@@ -31,6 +34,8 @@ function validateOffice(office) {
     document.getElementById(name + "_error").innerHTML = "";
   }
 }
+
+// Phone Number Validation
 function validateMobile(mobile) {
   let number = mobile.value;
   let name = mobile.name;
@@ -45,6 +50,8 @@ function validateMobile(mobile) {
     document.getElementById(name + "_error").innerHTML = "";
   }
 }
+
+// Email Validation
 function validateEmail(email) {
   let pattern = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+[.]+[a-zA-Z.]+$/;
   if (email.length == 0) {
@@ -57,6 +64,8 @@ function validateEmail(email) {
     document.getElementById("email_error").innerHTML = "";
   }
 }
+
+// Aadhar Validation
 function validateAadhar(aadharno) {
   let pattern = /^[0-9]{12}$/;
   if (aadharno.length == 0) {
@@ -70,6 +79,7 @@ function validateAadhar(aadharno) {
   }
 }
 
+// GST No Validation - GSTIN Format : 22 AAA09AAAZ7 1 Z 6
 function validateGST(gstinno) {
   let pattern = /^[0-9]{2}[A-Z0-9]{10}[0-9]{1}[Z]{1}[0-9]{1}$/;
   if (gstinno.length == 0) {
@@ -83,6 +93,7 @@ function validateGST(gstinno) {
   }
 }
 
+// Vehcile Number Validation
 function validateVehicleNo(vehicleno) {
   let pattern = /^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$/;
   if (vehicleno.length == 0) {
@@ -96,6 +107,7 @@ function validateVehicleNo(vehicleno) {
   }
 }
 
+// Numerical Validation
 function validateAllnumbers(data) {
   let number = data.value;
   let name = data.name;
@@ -113,6 +125,7 @@ function validateAllnumbers(data) {
   }
 }
 
+// Blood Group
 function validateBloodgrp(bloodgrp) {
   if (bloodgrp.length == 0) {
     document.getElementById("bloodgrp_error").innerHTML =
@@ -122,11 +135,12 @@ function validateBloodgrp(bloodgrp) {
   }
 }
 
+// Image Validation
 function viewFile() {
   const file = document.querySelector("input[type=file]").files[0];
-  document.getElementById("img").src = URL.createObjectURL(file);
-  // pic = URL.createObjectURL(file);
+  document.getElementById("img").src = URL.createObjectURL(file); //For that Page
 
+  // For new Page
   const reader = new FileReader();
   reader.addEventListener("load", () => {
     dataobj.pic = reader.result;
@@ -134,12 +148,6 @@ function viewFile() {
   if (file) {
     reader.readAsDataURL(file);
   }
-}
-
-// Gender Radio Selection
-function validateGender(gender) {
-  dataobj.gender = gender;
-  // console.log(dataobj.gender);
 }
 
 // Save data
@@ -166,6 +174,7 @@ function openData(str) {
   let pan_no = document.getElementById("pan_no").value;
   let bloodgrp = document.getElementById("bloodgrp").value;
   let dob = document.getElementById("dob").value;
+  let gender = document.querySelector('input[name="gender"]:checked').value;
 
   if (name.length == 0) {
     document.getElementById("name_error").innerHTML =
@@ -258,6 +267,7 @@ function openData(str) {
     flag = 0;
   }
 
+  // Hobby Validation
   var hobby_tosend = [];
   hobby = document.getElementsByName("hobby");
   let count = 0;
@@ -267,7 +277,7 @@ function openData(str) {
       hobby_tosend.push(hobby_name.value);
     }
   });
-  // alert(count)
+
   if (count < 2) {
     document.getElementById("hobby_error").innerHTML =
       "*Please choose more than 2 hobbies.";
@@ -295,59 +305,36 @@ function openData(str) {
   dataobj.pan_no = pan_no;
   dataobj.bloodgrp = bloodgrp;
   dataobj.dob = dob;
+  dataobj.gender = gender;
   dataobj.name2 = document.getElementById("name2").value;
   dataobj.mobile2 = document.getElementById("mobile2").value;
   dataobj.telephone2 = document.getElementById("telephone2").value;
   dataobj.relation = document.getElementById("relation").value;
 
   if (flag == 1) {
-
-    if (str == "save") {
+    if (str == 'save') {
       localStorage.setItem(emailid, JSON.stringify(dataobj));
     }
     if (str == "edit") {
-        alert("hello")
-      let getdata = JSON.parse(localStorage.getItem("data"));
-      let id;
-      let paramString = window.location.search;
-      let queryString = new URLSearchParams(paramString);
-
-      for (let pair of queryString.entries()) {
-        id = pair[1];
-      }
-
-        const newData = getdata.map(obj=>{
-          if(obj.id == id){
-            // alert(data.name);
-            obj = data;
-          }
-        });
-
-      //   deleteData(getdata.id);
-
-    //   getdata = data;
-
-      //   dataobj.id = data.length;
-      //   data.push(dataobj);
-    //   localStorage.setItem("data", JSON.stringify(newData));
+      localStorage.removeItem(emailid);
+      localStorage.setItem(emailid, JSON.stringify(dataobj));
     }
-
-    // // let key = localStorage.length + 1;
-    // // localStorage.setItem(key, JSON.stringify(dataobj));
   }
 }
 
 // View data
 function viewData() {
-  const getdata = localStorage.getItem("data");
-  data = JSON.parse(getdata);
+
+  let emailid;
 
   let paramString = window.location.search;
   let queryString = new URLSearchParams(paramString);
 
   for (let pair of queryString.entries()) {
-    data = data[pair[1]];
+    emailid = pair[1];
   }
+
+  const data = JSON.parse(localStorage.getItem(emailid));
 
   document.getElementById("name").value = data.name;
   document.getElementById("office").value = data.office;
@@ -369,9 +356,7 @@ function viewData() {
   document.getElementById("bloodgrp").value = data.bloodgrp;
   document.getElementById("dob").value = data.dob;
 
-  // document.getElementById("gender").value = data.gender;
   const gender = data.gender;
-  // alert(gender)
   if (gender == "Male") {
     document.getElementById("male").checked = true;
   } else if (gender == "Female") {
@@ -391,19 +376,8 @@ function viewData() {
   });
 
   document.querySelector("img").src = data.pic;
-
   document.getElementById("name2").value = data.name2;
   document.getElementById("mobile2").value = data.mobile2;
   document.getElementById("telephone2").value = data.telephone2;
   document.getElementById("relation").value = data.relation;
-}
-
-function deleteData(id) {
-  let data = JSON.parse(localStorage.getItem("data"));
-
-  const newData = data.filter((object) => {
-    return object.id !== id;
-  });
-  localStorage.setItem("data", JSON.stringify(newData));
-  //   location.reload();
 }

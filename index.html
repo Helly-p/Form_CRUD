@@ -7,10 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Operation</title>
 
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,6 +31,7 @@
                     <tr class="m-0 p-0">
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Gender</th>
                         <th scope="col">Email</th>
                         <th scope="col">View</th>
                         <th scope="col">Edit</th>
@@ -41,14 +39,6 @@
                     </tr>
                 </thead>
                 <tbody id="table_body">
-                    <tr>
-                        <td>1</td>
-                        <td>Helly hgfyhggggggggggggggggg</td>
-                        <td>helly@gmail.com</td>
-                        <td><i class="fa fa-search"></i></td>
-                        <td><i class="fa fa-pencil-square-o"></i></td>
-                        <td><i class="fa fa-trash"></i></td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -56,38 +46,32 @@
     <script>
         function loadData() {
             let tbody = document.getElementById("table_body");
-            const getdata = localStorage;
-            // data = JSON.parse(getdata);
-            alert(getdata['xyz@gmail.com'])
+            const getdata = { ...localStorage };
 
-            
+            let i = 0;
+            for (const data in getdata) {
+                const newData = JSON.parse(localStorage.getItem(data));
+                i++;
+                let view = `onclick = "view('` + newData.emailid + `')"`;
+                let edit = `onclick = "edit('` + newData.emailid + `')"`;
+                let deleteData = `onclick = "deleteData('` + newData.emailid + `')"`;
+                let tr = "<tr><td>" + i + "</td><td>" + newData.name + "</td><td>" + newData.gender + "</td><td>" + newData.emailid + "</td><td><i class='fa fa-search'" + view + "></i></td><td><i class='fa fa-pencil-square-o'" + edit + " ></i></td><td><i class='fa fa-trash'" + deleteData + "></i></td></tr>";
 
-            // console.log(data.length);
-
-            // if (data) {
-            //     for (let data of getdata.entries()) {
-            //         for(let i =0;i<getdata.length){}
-            //         let tr = "<tr><td>" + i + "</td><td>" + data[i].name + "</td><td>" + data[i].gender + "</td><td><i class='fa fa-search' onclick='view("+i+ ")'></i></td><td><i class='fa fa-pencil-square-o' onclick='edit(" + i + ")'></i></td><td><i class='fa fa-trash' onclick='deleteData(" + data[i].id + ")'></i></td>";
-
-            //         tbody.innerHTML += tr;
-            //         // alert(tr)
-            //     }
-            // }
+                tbody.innerHTML += tr;
+            }
+            if (i == 0) {
+                let tr = "<tr><td colspan='7'>No Records Found.</td><tr>";
+                tbody.innerHTML = tr;
+            }
         }
-        function view(id) {
-            window.open('./view.html?id=' + id, '_parent');
+        function view(emailid) {
+            window.open('./view.html?id=' + emailid, '_parent');
         }
-        function edit(id) {
-            window.open('./edit.html?id=' + id, '_parent');
+        function edit(emailid) {
+            window.open('./edit.html?id=' + emailid, '_parent');
         }
-        function deleteData(id) {
-            let data = JSON.parse(localStorage.getItem("data"));
-            
-            // let i =0;
-            const newData = data.filter(object => {
-                return object.id !== id;
-            });
-            localStorage.setItem('data',JSON.stringify(newData));
+        function deleteData(emailid) {
+            localStorage.removeItem(emailid);
             location.reload();
         }
     </script>

@@ -12,7 +12,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style.css">
-
 </head>
 
 <body>
@@ -27,38 +26,39 @@
                     </div>
                 </div>
                 <hr />
+                
                 <div class="row">
                     <div class="col-md-12">
                         <label for="name">Name :</label>
-                        <input type="text" name="name" id="name" onblur="validateName(this)"
-                            oninput="validateName(this)" title="Only characters allowed." pattern="[a-zA-Z\s]*"
-                            required>
+                        <input type="text" name="name" id="name" onblur="validateName(this)" oninput="validateName(this)" title="Only characters allowed." pattern="[a-zA-Z\s]*" required>
                     </div>
                 </div>
                 <hr />
                 <p id="name_error"></p>
                 <br>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <label for="office">Office :</label>
-                        <textarea type="text" name="office" id="office" rows="2" onblur="validateOffice(this)"
-                            oninput="validateOffice(this)" required></textarea>
+                        <textarea type="text" name="office" id="office" rows="2" onblur="validateOffice(this)" oninput="validateOffice(this)" required></textarea>
                     </div>
                 </div>
                 <hr />
                 <p id="office_error"></p>
                 <br>
+                
                 <div class="row">
                     <div class="col-md-12">
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <label for="residence">Residence :</label>
-                        <textarea type="text" name="residence" id="residence" rows="2" onblur="validateOffice(this)"
-                            oninput="validateOffice(this)" required></textarea>
+                        <textarea type="text" name="residence" id="residence" rows="2" onblur="validateOffice(this)" oninput="validateOffice(this)" required></textarea>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                     </div>
@@ -67,6 +67,7 @@
                 <br>
                 <p id="residence_error"></p>
                 <br>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="mobile">Mobile :</label>
@@ -75,23 +76,21 @@
                             <option value="(+1)">(+1)</option>
                             <option value="(+44)">(+44)</option>
                         </select>
-                        <input type="text" name="mobile" id="mobile" pattern="[6-9]{1}[0-9]{9}"
-                            title="Enter valid number." maxlength="10" onblur="validateMobile(this)"
-                            oninput="validateMobile(this)" required>
+                        <input type="text" name="mobile" id="mobile" pattern="[6-9]{1}[0-9]{9}" title="Enter valid number." maxlength="10" onblur="validateMobile(this)" oninput="validateMobile(this)" required>
                         <hr />
                         <p id="mobile_error"></p>
                         <br>
                     </div>
                     <div class="col-md-6">
                         <label for="telephone">Telephone :</label>
-                        <input type="tel" name="telephone" id="telephone" pattern="[6-9]{1}[0-9]{9}" maxlength="10"
-                            onblur="validateMobile(this)" oninput="validateMobile(this)" required>
+                        <input type="tel" name="telephone" id="telephone" pattern="[6-9]{1}[0-9]{9}" maxlength="10" onblur="validateMobile(this)" oninput="validateMobile(this)" required>
                         <hr />
 
                         <p id="telephone_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="gender">Gender :</label>
@@ -106,8 +105,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="profile_pic">Profile Picture :</label>
-                        <input type="file" name="profile_pic" id="profile_pic" accept="image/*" onchange="viewFile()"
-                            required>
+                        <input type="file" name="profile_pic" id="profile_pic" accept="image/*" onchange="viewFile()" required>
                         <br>
                         <img id="img" width="100">
                         <hr />
@@ -115,21 +113,21 @@
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <label for="emailid">Email ID :</label>
-                        <input type="email" name="emailid" id="emailid" onblur="validateEmail(this.value)"
-                            oninput="validateEmail(this.value)" required>
+                        <input type="email" name="emailid" id="emailid" onblur="validateEmail(this.value)" oninput="validateEmail(this.value)" required>
                     </div>
                 </div>
                 <hr />
                 <p id="email_error"></p>
                 <br>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="aadharno">Aadhar No. :</label>
-                        <input type="text" name="aadharno" id="aadharno" pattern="[0-9]*" maxlength="12" title="Only numbers allowed
-                        ." onblur="validateAadhar(this.value)" oninput="validateAadhar(this.value)" required>
+                        <input type="text" name="aadharno" id="aadharno" pattern="[0-9]*" maxlength="12" title="Only numbers allowed." onblur="validateAadhar(this.value)" oninput="validateAadhar(this.value)" required>
                         <hr />
 
                         <p id="aadhar_error"></p>
@@ -138,37 +136,35 @@
 
                     <div class="col-md-6">
                         <label for="gstin">GSTIN :</label>
-                        <input type="text" name="gstin" id="gstin" pattern="[0-9]{2}[A-Z0-9]{10}[0-9]{1}[Z]{1}[0-9]{1}"
-                            maxlength="15" onblur="validateGST(this.value)" oninput="validateGST(this.value)" required>
+                        <input type="text" name="gstin" id="gstin" pattern="[0-9]{2}[A-Z0-9]{10}[0-9]{1}[Z]{1}[0-9]{1}" maxlength="15" onblur="validateGST(this.value)" oninput="validateGST(this.value)" required>
                         <!-- GSTIN Format : 22 AAA09AAAZ7 1 Z 6 -->
                         <hr />
                         <p id="gstin_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="vehicleno">Vehicle No. :</label>
-                        <input type="text" name="vehicleno" id="vehicleno" onblur="validateVehicleNo(this.value)"
-                            oninput="validateVehicleNo(this.value)" placeholder="XX00XX0000" required>
+                        <input type="text" name="vehicleno" id="vehicleno" onblur="validateVehicleNo(this.value)" oninput="validateVehicleNo(this.value)" placeholder="XX00XX0000" required>
                         <hr />
                         <p id="vehicleno_error"></p>
                         <br>
                     </div>
                     <div class="col-md-6">
                         <label for="dlno">DL No. :</label>
-                        <input type="text" name="dlno" id="dlno" onblur="validateAllnumbers(this)"
-                            oninput="validateAllnumbers(this)" required>
+                        <input type="text" name="dlno" id="dlno" onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
                         <hr />
                         <p id="dlno_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="bank_acc">Bank A/c With :</label>
-                        <input type="text" name="bank_acc" id="bank_acc" pattern="[A-Za-z]*" onblur="validateName(this)"
-                            oninput="validateName(this)" required>
+                        <input type="text" name="bank_acc" id="bank_acc" pattern="[A-Za-z]*" onblur="validateName(this)" oninput="validateName(this)" required>
                         <hr />
 
                         <p id="bank_acc_error"></p>
@@ -176,50 +172,48 @@
                     </div>
                     <div class="col-md-6">
                         <label for="accno">Account No. :</label>
-                        <input type="number" name="accno" id="accno" onblur="validateAllnumbers(this)"
-                            oninput="validateAllnumbers(this)" required>
+                        <input type="number" name="accno" id="accno" onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
                         <hr />
                         <p id="accno_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="debitcardno">Debit Card No.:</label>
-                        <input type="text" name="debitcardno" id="debitcardno" pattern="[0-9]*" maxlength="16"
-                            onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
+                        <input type="text" name="debitcardno" id="debitcardno" pattern="[0-9]*" maxlength="16" onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
                         <hr />
                         <p id="debitcardno_error"></p>
                         <br>
                     </div>
                     <div class="col-md-6">
                         <label for="creditcardno">Credit Card No. :</label>
-                        <input type="text" name="creditcardno" id="creditcardno" pattern="[0-9]*" maxlength="16"
-                            onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
+                        <input type="text" name="creditcardno" id="creditcardno" pattern="[0-9]*" maxlength="16" onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
                         <hr />
                         <p id="creditcardno_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="passportno">Passport No.:</label>
-                        <input type="number" name="passportno" id="passportno" onblur="validateAllnumbers(this)"
-                            oninput="validateAllnumbers(this)" required>
+                        <input type="number" name="passportno" id="passportno" onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
                         <hr />
                         <p id="passportno_error"></p>
                         <br>
                     </div>
                     <div class="col-md-6">
                         <label for="pan_no">PAN No. :</label>
-                        <input type="text" name="pan_no" id="pan_no" onblur="validateAllnumbers(this)"
-                            oninput="validateAllnumbers(this)" required>
+                        <input type="text" name="pan_no" id="pan_no" onblur="validateAllnumbers(this)" oninput="validateAllnumbers(this)" required>
                         <hr />
 
                         <p id="pan_no_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="bloodgrp">Blood Group :</label>
@@ -246,13 +240,12 @@
                         <label for="hobby2">Dancing</label>
                         <input type="checkbox" id="hobby3" name="hobby" value="Eating">
                         <label for="hobby3">Eating</label>
-
-                        <!-- <input type="button"> -->
                         <hr />
                         <p id="hobby_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <label for="dob">Date of birth :</label>
@@ -260,60 +253,59 @@
                     </div>
                 </div>
                 <hr />
+                
                 <div class="row">
                     <div class="col-md-12">
                         <h5>IN CASE OF EMERGENCY PLEASE NOTIFY</h5>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <hr style="width: 100%;" />
                         <label for="name2">Name :</label>
-                        <input type="text" name="name2" id="name2" title="Only characters allowed."
-                            pattern="[a-zA-Z][a-zA-Z\s]*" onblur="validateName(this)" oninput="validateName(this)"
-                            required>
+                        <input type="text" name="name2" id="name2" title="Only characters allowed." pattern="[a-zA-Z][a-zA-Z\s]*" onblur="validateName(this)" oninput="validateName(this)" required>
                         <hr />
                         <p id="name2_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <label for="mobile2">Mobile :</label>
-                        <input type="tel" name="mobile2" id="mobile2" pattern="[6-9]{1}[0-9]{9}"
-                            title="Enter valid number." maxlength="10" onblur="validateMobile(this)"
-                            oninput="validateMobile(this)" required>
+                        <input type="tel" name="mobile2" id="mobile2" pattern="[6-9]{1}[0-9]{9}" title="Enter valid number." maxlength="10" onblur="validateMobile(this)" oninput="validateMobile(this)" required>
                         <hr />
 
                         <p id="mobile2_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <label for="telephone2">Telephone :</label>
-                        <input type="tel" name="telephone2" id="telephone2" pattern="[6-9]{1}[0-9]{9}" maxlength="10"
-                            onblur="validateMobile(this)" oninput="validateMobile(this)" required>
+                        <input type="tel" name="telephone2" id="telephone2" pattern="[6-9]{1}[0-9]{9}" maxlength="10" onblur="validateMobile(this)" oninput="validateMobile(this)" required>
                         <hr />
                         <p id="telephone2_error"></p>
                         <br>
                     </div>
                     <div class="col-md-6">
                         <label for="relation">Relation :</label>
-                        <input type="text" name="relation" id="relation" title="Only characters allowed."
-                            pattern="[a-zA-Z][a-zA-Z\s]*" onblur="validateName(this)" oninput="validateName(this)"
-                            required>
+                        <input type="text" name="relation" id="relation" title="Only characters allowed." pattern="[a-zA-Z][a-zA-Z\s]*" onblur="validateName(this)" oninput="validateName(this)" required>
                         <hr />
 
                         <p id="relation_error"></p>
                         <br>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <h6><b>IN CASE OF LOSS, PLEASE RETURN IT TO THE OWNER.</b></h6>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6">
                         <center>
@@ -322,14 +314,15 @@
                     </div>
                     <div class="col-md-6">
                         <center>
-                            <input type="submit" onclick="openData('save')" value="SUBMIT" id="submit"
-                                class="btn btn-secondary">
+                            <input type="submit" onclick="openData('save')" value="SUBMIT" id="submit" class="btn btn-secondary">
                         </center>
                     </div>
                 </div>
             </div>
         </form>
     </section>
+
+    <!-- Custom JS -->
     <script src="./script.js"></script>
 </body>
 

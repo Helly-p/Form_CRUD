@@ -44,6 +44,8 @@
         </div>
     </section>
     <script>
+
+        // List Data
         function loadData() {
             let tbody = document.getElementById("table_body");
             const getdata = { ...localStorage };
@@ -64,12 +66,18 @@
                 tbody.innerHTML = tr;
             }
         }
+
+        // View Single Profile
         function view(emailid) {
             window.open('./view.html?id=' + emailid, '_parent');
         }
+
+        // Edit Single Profile
         function edit(emailid) {
             window.open('./edit.html?id=' + emailid, '_parent');
         }
+
+        // Delete Single Entry
         function deleteData(emailid) {
             localStorage.removeItem(emailid);
             location.reload();

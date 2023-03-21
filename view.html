@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Data</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body onload="viewData()">
+    <section>
+        <br>
+        <h2 align="center">
+            View Details
+        </h2>
+        <form method="post">
+            <div class="container form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="pic_img" alt="Profile Pic" width="120" height="120">
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="name">Name :</label>
+                        <input type="text" name="name" id="name" readonly>
+                    </div>
+                </div>
+                <hr />
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="office">Office :</label>
+                        <textarea type="text" name="office" id="office" rows="2" readonly></textarea>
+                    </div>
+                </div>
+                <hr />
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="residence">Residence :</label>
+                        <textarea type="text" name="residence" id="residence" rows="2" readonly></textarea>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+                <hr />
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="mobile">Mobile :</label>
+                        <select name="country_code" id="country_code" disabled>
+                            <option value="(+91)">(+91)</option>
+                            <option value="(+1)">(+1)</option>
+                            <option value="(+44)">(+44)</option>
+                        </select>
+                        <input type="text" name="mobile" id="mobile" readonly>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="telephone">Telephone :</label>
+                        <input type="tel" name="telephone" id="telephone" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="gender">Gender :</label>
+                        <input type="radio" name="gender" id="male" disabled>
+                        <label for="male">Male</label>
+
+                        <input type="radio" name="gender" id="female" disabled>
+                        <label for="female">Female</label>
+
+                        <input type="radio" name="gender" id="other" disabled>
+                        <label for="other">Other</label>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <label for="profile_pic">Profile Picture :</label>
+                        <img id="img" alt="Profile Pic" width="100">
+                    </div> -->
+                </div>
+                <hr />
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="emailid">Email ID :</label>
+                        <input type="email" name="emailid" id="emailid" readonly>
+                    </div>
+                </div>
+                <hr />
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="aadharno">Aadhar No. :</label>
+                        <input type="text" name="aadharno" id="aadharno" readonly>
+                        <hr />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="gstin">GSTIN :</label>
+                        <input type="text" name="gstin" id="gstin" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="vehicleno">Vehicle No. :</label>
+                        <input type="text" name="vehicleno" id="vehicleno" readonly>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dlno">DL No. :</label>
+                        <input type="text" name="dlno" id="dlno" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="bank_acc">Bank A/c With :</label>
+                        <input type="text" name="bank_acc" id="bank_acc" readonly>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="accno">Account No. :</label>
+                        <input type="number" name="accno" id="accno" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="debitcardno">Debit Card No.:</label>
+                        <input type="text" name="debitcardno" id="debitcardno" readonly>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="creditcardno">Credit Card No. :</label>
+                        <input type="text" name="creditcardno" id="creditcardno" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="passportno">Passport No.:</label>
+                        <input type="number" name="passportno" id="passportno" readonly>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pan_no">PAN No. :</label>
+                        <input type="number" name="pan_no" id="pan_no" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="bloodgrp">Blood Group :</label>
+                        <select name="bloodgrp" id="bloodgrp" disabled>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="hobbies">Hobbies :</label>
+                        <input type="checkbox" id="hobby1" name="hobby" value="Boxing">
+                        <label for="hobby1">Boxing</label>
+                        <input type="checkbox" id="hobby2" name="hobby" value="Dancing">
+                        <label for="hobby2">Dancing</label>
+                        <input type="checkbox" id="hobby3" name="hobby" value="Eating">
+                        <label for="hobby3">Eating</label>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="dob">Date of birth :</label>
+                        <input type="date" name="dob" id="dob" readonly>
+                    </div>
+                </div>
+                <hr />
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>IN CASE OF EMERGENCY PLEASE NOTIFY</h5>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr style="width: 100%;" />
+                        <label for="name2">Name :</label>
+                        <input type="text" name="name2" id="name2" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="mobile2">Mobile :</label>
+                        <input type="tel" name="mobile2" id="mobile2" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="telephone2">Telephone :</label>
+                        <input type="tel" name="telephone2" id="telephone2" readonly>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="relation">Relation :</label>
+                        <input type="text" name="relation" id="relation" readonly>
+                        <hr />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6><b>IN CASE OF LOSS, PLEASE RETURN IT TO THE OWNER.</b></h6>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <!-- Custom JS -->
+    <script src="./script.js"></script>
+</body>
+
+</html>

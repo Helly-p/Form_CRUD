@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operation</title>
+
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body onload="loadData()">
+    <section id="main">
+        <div>
+            <br>
+            <h2 align="center">
+                Employee List
+            </h2>
+            <a class="btn btn-success" href="./create.html" id="add">Add New Employee</a>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr class="m-0 p-0">
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">View</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script>
+
+        // List Data
+        function loadData() {
+            let tbody = document.getElementById("table_body");
+            const getdata = { ...localStorage };
+
+            let i = 0;
+            for (const data in getdata) {
+                const newData = JSON.parse(localStorage.getItem(data));
+                i++;
+                let view = `onclick = "view('` + newData.emailid + `')"`;
+                let edit = `onclick = "edit('` + newData.emailid + `')"`;
+                let deleteData = `onclick = "deleteData('` + newData.emailid + `')"`;
+                let tr = "<tr><td>" + i + "</td><td>" + newData.name + "</td><td>" + newData.gender + "</td><td>" + newData.emailid + "</td><td><i class='fa fa-search'" + view + "></i></td><td><i class='fa fa-pencil-square-o'" + edit + " ></i></td><td><i class='fa fa-trash'" + deleteData + "></i></td></tr>";
+
+                tbody.innerHTML += tr;
+            }
+            if (i == 0) {
+                let tr = "<tr><td colspan='7'>No Records Found.</td><tr>";
+                tbody.innerHTML = tr;
+            }
+        }
+
+        // View Single Profile
+        function view(emailid) {
+            window.open('./view.html?id=' + emailid, '_parent');
+        }
+
+        // Edit Single Profile
+        function edit(emailid) {
+            window.open('./edit.html?id=' + emailid, '_parent');
+        }
+
+        // Delete Single Entry
+        function deleteData(emailid) {
+            localStorage.removeItem(emailid);
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

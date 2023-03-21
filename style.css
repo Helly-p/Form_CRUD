@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+section {
+  background-color: rgba(218, 218, 218, 0.445);
+  margin: 10px 300px;
+  width: 50%;
+  margin: 10px auto;
+}
+
+.conatiner {
+  margin: 30px;
+}
+
+.form {
+  padding: 20px 30px;
+}
+
+#personal {
+  float: right;
+  position: relative;
+  color: white;
+}
+
+#personal h4 {
+  font-size: 23px;
+  padding: 10px 20px;
+  border-radius: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+}
+
+#personal span {
+  margin-left: 7px;
+  padding: 14px 15px 10px 15px;
+  background-color: red;
+  color: red;
+  cursor: pointer;
+  display: inline-block;
+}
+
+label {
+  font-size: 18px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"] {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 200px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-left: 20px;
+  accent-color: rgba(128, 128, 128, 0.281);
+}
+input[type="date"] {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+select {
+  color: black;
+  width: 80px;
+  outline: none;
+  font-size: 18px;
+  padding: 2px;
+  margin-left: 10px;
+  background-color: transparent;
+}
+
+#country_code {
+  width: 75px;
+  border: none;
+}
+
+textarea {
+  background-color: transparent;
+  margin-bottom: -38px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+}
+
+#office,
+#residence,
+#name,
+#name2 {
+  width: 88%;
+}
+
+#profile_pic {
+  width: 55%;
+}
+
+#submit,
+#reset {
+  font-size: 20px;
+  padding: 5px 20px;
+  border-radius: 0%;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+  width: 100%;
+  margin-top: 0.5%;
+}
+
+hr:nth-child(8) {
+  margin-top: 2.5%;
+}
+
+hr:nth-child(6),
+hr:nth-child(10) {
+  margin-top: 3.5%;
+}
+
+h5 {
+  color: red;
+  font-weight: light;
+}
+
+p {
+  color: red;
+  font-size: 17px;
+  margin-top: -18px;
+}
+
+@media (max-width: 768px) {
+  section {
+    width: 80%;
+  }
+
+  .form {
+    padding: 20px 10px;
+  }
+
+  #personal h4 {
+    font-size: 20px;
+    padding: 7px 10px;
+  }
+
+  #personal span {
+    margin-left: 7px;
+    padding: 8px 10px 5px 10px;
+  }
+}
+
+#main {
+  background-color: rgba(218, 218, 218, 0.281);
+  margin-top: 5%;
+}
+
+#main #add {
+  float: right;
+  margin-right: 2%;
+}
+
+#main .table {
+  width: 96%;
+  margin: 2%;
+  margin-top: 6%;
+  text-align: center;
+}
+
+#main table i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#main table i {
+  color: rgb(55, 87, 175);
+}
+
+#pic_img {
+  float: right;
+  padding: 1%;
+  border: 2px solid rgba(80, 80, 80, 0.411);
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  text-align: left;
+}
